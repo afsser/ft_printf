@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nasser <nasser@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 15:17:16 by nasser            #+#    #+#             */
-/*   Updated: 2023/09/28 19:01:24 by nasser           ###   ########.fr       */
+/*   Updated: 2023/09/28 19:54:28 by nasser           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int	main(void)
 	ft_printf("\nponteiro em unsigned long: %u.", test);
 	ft_printf("\nponteiro minha: %p.", test);
 	printf("\nponteiro printf: %p.", test);
-	printf("\n34585634 em hexadecimal da printf é: %x.", 34585634);
+	printf("\n34585634 em hexadecimal da printf é: %x.\n", 34585634);
+	ft_printf("\"# +\":%#% %+");
 	return (1);
 }
