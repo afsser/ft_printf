@@ -6,15 +6,19 @@
 /*   By: fcaldas- <fcaldas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 21:11:21 by fcaldas-          #+#    #+#             */
-/*   Updated: 2023/09/27 21:42:50 by fcaldas-         ###   ########.fr       */
+/*   Updated: 2023/09/27 21:55:59 by fcaldas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	*print_var()
+int	print_var(va_list args, const char format)
 {
-	
+	int	print_len;
+
+	print_len = 0;
+	if (format == 'c')
+		print_len += ft_printchar(format);
 }
 
 int		ft_printf(const char *str, ...)
