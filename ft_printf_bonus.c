@@ -6,49 +6,49 @@
 /*   By: nasser <nasser@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 21:11:21 by fcaldas-          #+#    #+#             */
-/*   Updated: 2023/09/28 19:53:09 by nasser           ###   ########.fr       */
+/*   Updated: 2023/09/28 20:26:01 by nasser           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_print_var_bonus(const char format)
+// int	ft_print_var_bonus(va_list args, const char *format, int i)
+// {
+// 	int	print_len;
+
+// 	print_len = 0;
+// 	if (format[i] == ' ')
+// 		print_len += ft_printchar(' ');
+// 	else if (format[i] == '#')
+// 		print_len += ft_printchar('#');
+// 	else if (format[i] == '+')
+// 		print_len += ft_printchar('+');
+// 	return (print_len);
+// }
+	// else
+	// {
+	// 	print_len += ft_print_var_bonus(args, format, i);
+	// }
+
+int	print_var(va_list args, const char *format, int i)
 {
 	int	print_len;
 
 	print_len = 0;
-	if (format == ' ')
-		print_len += ft_printchar(' ');
-	else if (format == '#')
-		print_len += ft_printchar('#');
-	else if (format == '+')
-		print_len += ft_printchar('+');
-	return (print_len);
-}
-
-int	print_var(va_list args, const char format)
-{
-	int	print_len;
-
-	print_len = 0;
-	if (format == 'c')
+	if (format[i] == 'c')
 		print_len += ft_printchar(va_arg(args, int));
-	else if (format == 's')
+	else if (format[i] == 's')
 		print_len += ft_printstr(va_arg(args, char *));
-	else if (format == 'p')
-		print_len += ft_putnbr_base(va_arg(args, unsigned long int), format);
-	else if (format == 'd' || format == 'i')
+	else if (format[i] == 'p')
+		print_len += ft_putnbr_base(va_arg(args, unsigned long int), format[i]);
+	else if (format[i] == 'd' || format[i] == 'i')
 		print_len += ft_printnbr(va_arg(args, int));
-	else if (format == 'u')
-		print_len += ft_putnbr_base(va_arg(args, unsigned long int), format);
-	else if (format == 'x' || format == 'X')
-		print_len += ft_putnbr_base(va_arg(args, unsigned long int), format);
-	else if (format == '%')
+	else if (format[i] == 'u')
+		print_len += ft_putnbr_base(va_arg(args, unsigned long int), format[i]);
+	else if (format[i] == 'x' || format[i] == 'X')
+		print_len += ft_putnbr_base(va_arg(args, unsigned long int), format[i]);
+	else if (format[i] == '%')
 		print_len += ft_printchar('%');
-	else
-	{
-		print_len += ft_print_var_bonus(format);
-	}
 	return (print_len);
 }
 
@@ -65,7 +65,7 @@ int	ft_printf(const char *str, ...)
 	{
 		if (str[i] == '%')
 		{
-			print_len = print_len + print_var(args, str[i + 1]);
+			print_len = print_len + print_var(args, str, i + 1);
 			i++;
 		}
 		else
