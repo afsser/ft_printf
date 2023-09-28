@@ -6,7 +6,7 @@
 /*   By: nasser <nasser@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 21:11:21 by fcaldas-          #+#    #+#             */
-/*   Updated: 2023/09/28 18:25:53 by nasser           ###   ########.fr       */
+/*   Updated: 2023/09/28 19:17:25 by nasser           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ int	ft_printf(const char *str, ...)
 			print_len = print_len + ft_printchar(str[i]);
 		i++;
 	}
+	va_end(args);
 	return (print_len);
 }
