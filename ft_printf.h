@@ -3,24 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fcaldas- <fcaldas-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: nasser <nasser@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 21:12:03 by fcaldas-          #+#    #+#             */
-/*   Updated: 2023/09/27 21:40:02 by fcaldas-         ###   ########.fr       */
+/*   Updated: 2023/09/28 15:26:37 by nasser           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# define hexa_low "0123456789abcdef"
-# define hexa_up "0123456789ABCDEF"
-# define formats "cspdiuxX%# +"
+# define HEXA_LOW "0123456789abcdef"
+# define HWXA_UP "0123456789ABCDEF"
+# define FORMATS "cspdiuxX%# +"
 
 # include <unistd.h>
 # include <stdarg.h>
 
+int		ft_printf(const char *str, ...);
 char	*ft_strchr(const char *s, int c);
-int		*ft_putchar(char c);
+void	ft_putchar(char c);
+int		ft_printchar(char c);
+int		ft_printstr(char *str);
 
 #endif
