@@ -6,7 +6,7 @@
 /*   By: nasser <nasser@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 21:11:21 by fcaldas-          #+#    #+#             */
-/*   Updated: 2023/09/28 15:30:41 by nasser           ###   ########.fr       */
+/*   Updated: 2023/09/28 18:25:53 by nasser           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,16 @@ int	print_var(va_list args, const char format)
 		print_len += ft_printchar(va_arg(args, int));
 	else if (format == 's')
 		print_len += ft_printstr(va_arg(args, char *));
+	else if (format == 'p')
+		print_len += ft_putnbr_base(va_arg(args, unsigned long int), format);
+	else if (format == 'd' || format == 'i')
+		print_len += ft_printnbr(va_arg(args, int));
+	else if (format == 'u')
+		print_len += ft_putnbr_base(va_arg(args, unsigned long int), format);
+	else if (format == 'x' || format == 'X')
+		print_len += ft_putnbr_base(va_arg(args, unsigned long int), format);
+	else if (format == '%')
+		print_len += ft_printchar('%');
 	return (print_len);
 }
 
@@ -35,7 +45,7 @@ int	ft_printf(const char *str, ...)
 	print_len = 0;
 	while (str[i])
 	{
-		if (str[i] == '%' && ft_strchr(FORMATS, str[i + 1]))
+		if (str[i] == '%')
 		{
 			print_len = print_len + print_var(args, str[i + 1]);
 			i++;
