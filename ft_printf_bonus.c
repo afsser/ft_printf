@@ -1,16 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printf_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nasser <nasser@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 21:11:21 by fcaldas-          #+#    #+#             */
-/*   Updated: 2023/09/28 19:17:25 by nasser           ###   ########.fr       */
+/*   Updated: 2023/09/28 19:53:09 by nasser           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_print_var_bonus(const char format)
+{
+	int	print_len;
+
+	print_len = 0;
+	if (format == ' ')
+		print_len += ft_printchar(' ');
+	else if (format == '#')
+		print_len += ft_printchar('#');
+	else if (format == '+')
+		print_len += ft_printchar('+');
+	return (print_len);
+}
 
 int	print_var(va_list args, const char format)
 {
@@ -31,6 +45,10 @@ int	print_var(va_list args, const char format)
 		print_len += ft_putnbr_base(va_arg(args, unsigned long int), format);
 	else if (format == '%')
 		print_len += ft_printchar('%');
+	else
+	{
+		print_len += ft_print_var_bonus(format);
+	}
 	return (print_len);
 }
 
