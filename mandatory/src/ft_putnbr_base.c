@@ -6,11 +6,11 @@
 /*   By: fcaldas- <fcaldas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 17:12:03 by nasser            #+#    #+#             */
-/*   Updated: 2023/09/29 20:16:51 by fcaldas-         ###   ########.fr       */
+/*   Updated: 2023/09/29 20:26:40 by fcaldas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 int	ft_putnbr_base(unsigned long int nbr, char format)
 {

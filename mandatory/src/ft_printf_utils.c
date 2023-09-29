@@ -6,11 +6,11 @@
 /*   By: fcaldas- <fcaldas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 21:25:30 by fcaldas-          #+#    #+#             */
-/*   Updated: 2023/09/29 19:51:49 by fcaldas-         ###   ########.fr       */
+/*   Updated: 2023/09/29 20:26:45 by fcaldas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../includes/ft_printf.h"
 
 int	ft_strlen(char *str)
 {
