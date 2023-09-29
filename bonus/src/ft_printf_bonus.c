@@ -6,7 +6,7 @@
 /*   By: nasser <nasser@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 21:11:21 by fcaldas-          #+#    #+#             */
-/*   Updated: 2023/09/29 00:55:50 by nasser           ###   ########.fr       */
+/*   Updated: 2023/09/29 01:26:30 by nasser           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ int	ft_print_hash(va_list args, const char *format, int i)
 	if (format[i] == '#' && format[i + 1] == 'x')
 	{
 		print_len += ft_printstr(LOW_HASH);
-		print_len += ft_putnbr_base(va_arg(args, unsigned long int), format[i]);
+		print_len += ft_putnbr_base(va_arg(args, unsigned long int), 'x');
 	}
 	else if (format[i] == '#' && format[i + 1] == 'X')
 	{
 		print_len += ft_printstr(UP_HASH);
-		print_len += ft_putnbr_base(va_arg(args, unsigned long int), format[i]);
+		print_len += ft_putnbr_base(va_arg(args, unsigned long int), 'X');
 	}
 	else if (format[i] == 'x' || format[i] == 'X')
 		print_len += ft_putnbr_base(va_arg(args, unsigned long int), format[i]);
