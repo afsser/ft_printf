@@ -6,13 +6,14 @@
 /*   By: fcaldas- <fcaldas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 15:17:16 by nasser            #+#    #+#             */
-/*   Updated: 2023/09/29 17:45:08 by fcaldas-         ###   ########.fr       */
+/*   Updated: 2023/09/29 20:05:07 by fcaldas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "ft_printf.h"
+#include "./mandatory/includes/ft_printf.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include <stddef.h>
 
 int	main(void)
 {
@@ -28,7 +29,11 @@ int	main(void)
 	// ft_printf("\nponteiro minha: %p.", test);
 	// printf("\nponteiro printf: %p.", test);
 	// printf("\n34585634 em hexadecimal da printf é: %x.", 34585634);
-	printf("\ncom '#': %#X.", 0);
-	printf("\nsem '#': %#X.", 1);
+	// printf("\ncom '#': %#X", 0);
+	// printf("\nsem '#': %#X", 1);
+	// ft_printf("\n NULL %s NULL ", NULL);
+	// printf("\n NULL %s NULL ", NULL);
+	printf("\n hexa %x", -10);
+	// ft_printf("\n\n");
 	return (1);
 }

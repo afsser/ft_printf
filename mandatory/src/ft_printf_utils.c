@@ -6,11 +6,23 @@
 /*   By: fcaldas- <fcaldas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 21:25:30 by fcaldas-          #+#    #+#             */
-/*   Updated: 2023/09/29 16:31:09 by fcaldas-         ###   ########.fr       */
+/*   Updated: 2023/09/29 19:51:49 by fcaldas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+int	ft_strlen(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		i++;
+	}
+	return (i);
+}
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -44,6 +56,8 @@ int	ft_printstr(char *str)
 			i += ft_printchar(str[i]);
 		}
 	}
+	else
+		ft_printstr("(null)");
 	return (i);
 }
 
