@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nasser <nasser@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fcaldas- <fcaldas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 21:11:21 by fcaldas-          #+#    #+#             */
-/*   Updated: 2023/09/29 01:26:30 by nasser           ###   ########.fr       */
+/*   Updated: 2023/09/29 18:07:52 by fcaldas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,26 @@ int	follow_str(const char *str, int i)
 
 int	ft_print_hash(va_list args, const char *format, int i)
 {
-	int	print_len;
+	int					print_len;
+	unsigned long int	nbr;
 
 	print_len = 0;
-	if (format[i] == '#' && format[i + 1] == 'x')
+	if (format[i] == '#' && (format[i + 1] == 'x' || format[i + 1] == 'X'))
 	{
-		print_len += ft_printstr(LOW_HASH);
-		print_len += ft_putnbr_base(va_arg(args, unsigned long int), 'x');
+		nbr = va_arg(args, unsigned long int);
+		if (format[i + 1] == 'x')
+		{
+			if (nbr != 0)
+				print_len += ft_printstr(LOW_HASH);
+			print_len += ft_putnbr_base(nbr, 'x');
+		}
+		if (format[i + 1] == 'X')
+		{
+			if (nbr != 0)
+				print_len += ft_printstr(UP_HASH);
+			print_len += ft_putnbr_base(nbr, 'X');
+		}
 	}
-	else if (format[i] == '#' && format[i + 1] == 'X')
-	{
-		print_len += ft_printstr(UP_HASH);
-		print_len += ft_putnbr_base(va_arg(args, unsigned long int), 'X');
-	}
-	else if (format[i] == 'x' || format[i] == 'X')
-		print_len += ft_putnbr_base(va_arg(args, unsigned long int), format[i]);
 	return (print_len);
 }
 
@@ -57,7 +62,7 @@ int	print_var(va_list args, const char *format, int i)
 	else if (format[i] == 's')
 		print_len += ft_printstr(va_arg(args, char *));
 	else if (format[i] == 'p')
-		print_len += ft_putnbr_base(va_arg(args, unsigned long int), format[i]);
+		print_len += ft_printptr(va_arg(args, unsigned long int));
 	else if (format[i] == ' ' && (format[i + 1] == 'd' || format[i + 1] == 'i'))
 		print_len += ft_printnbr(va_arg(args, int), 1, 0);
 	else if (format[i] == '+' && (format[i + 1] == 'd' || format[i + 1] == 'i'))
@@ -68,6 +73,8 @@ int	print_var(va_list args, const char *format, int i)
 		print_len += ft_putnbr_base(va_arg(args, unsigned long int), format[i]);
 	else if (format[i] == '%')
 		print_len += ft_printchar('%');
+	else if (format[i] == 'x' || format[i] == 'X')
+		print_len += ft_putnbr_base(va_arg(args, unsigned long int), format[i]);
 	else
 		print_len += ft_print_hash(args, format, i);
 	return (print_len);

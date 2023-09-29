@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nasser <nasser@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fcaldas- <fcaldas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 21:25:30 by fcaldas-          #+#    #+#             */
-/*   Updated: 2023/09/28 18:56:19 by nasser           ###   ########.fr       */
+/*   Updated: 2023/09/29 16:31:09 by fcaldas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,12 @@ int	ft_printstr(char *str)
 	int	i;
 
 	i = 0;
-	while (str[i])
+	if (str)
 	{
-		i += ft_printchar(str[i]);
+		while (str[i])
+		{
+			i += ft_printchar(str[i]);
+		}
 	}
 	return (i);
 }

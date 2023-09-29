@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nasser <nasser@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fcaldas- <fcaldas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 21:12:03 by fcaldas-          #+#    #+#             */
-/*   Updated: 2023/09/29 00:50:55 by nasser           ###   ########.fr       */
+/*   Updated: 2023/09/29 17:08:20 by fcaldas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ char	*ft_strchr(const char *s, int c);
 int		ft_printchar(char c);
 int		ft_printstr(char *str);
 int		ft_printnbr(int n, int space, int plus);
-int		ft_putnbr_base(unsigned long int nbr, char format);
+int		ft_putnbr_base(long int nbr, char format);
+int		ft_printptr(unsigned long num);
 
 #endif

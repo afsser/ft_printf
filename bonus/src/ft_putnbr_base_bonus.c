@@ -3,14 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putnbr_base_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nasser <nasser@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fcaldas- <fcaldas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 17:12:03 by nasser            #+#    #+#             */
-/*   Updated: 2023/09/28 23:57:55 by nasser           ###   ########.fr       */
+/*   Updated: 2023/09/29 17:37:59 by fcaldas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf_bonus.h"
+
+void	ft_bzero(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		str[i] = 0;
+		i++;
+	}
+}
 
 int	check_base(char *base)
 {
@@ -40,31 +52,25 @@ int	check_base(char *base)
 	return (j);
 }
 
-int	print_nbr(char *base, char *result, long int nbr, int size)
+int	print_nbr(char *base, long int nbr, int size)
 {
-	int	i;
-	int	len;
+	int	print_len;
 
-	i = 0;
-	while (nbr > 0)
+	print_len = 0;
+	if (nbr < 0)
 	{
-		result[i] = base[nbr % size];
-		nbr = nbr / size;
-		i++;
+		nbr = -nbr;
+		print_len += ft_printchar('-');
 	}
-	len = i;
-	while (i >= 0)
-	{
-		i--;
-		write(1, &result[i], 1);
-	}
-	return (len);
+	if (nbr >= size)
+		print_len += print_nbr(base, nbr / size, size);
+	print_len += ft_printchar(base[nbr % size]);
+	return (print_len);
 }
 
-int	ft_putnbr_base(unsigned long int nbr, char format)
+int	ft_putnbr_base(long int nbr, char format)
 {
 	int			size;
-	char		result[20];
 	char		*base;
 
 	if (format == 'X')
@@ -83,5 +89,5 @@ int	ft_putnbr_base(unsigned long int nbr, char format)
 		write(1, &base[0], 1);
 		return (1);
 	}
-	return (print_nbr(base, result, nbr, size));
+	return (print_nbr(base, nbr, size));
 }

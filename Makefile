@@ -19,12 +19,14 @@ COLOR_LIMITER = "\033[0m"
 SOURCES = \
 	ft_printf.c \
 	ft_putnbr_base.c \
-	ft_printf_utils.c
+	ft_printf_utils.c \
+	ft_printptr.c
 
 BONUS_SOURCES = \
 	ft_printf_bonus.c \
 	ft_putnbr_base_bonus.c \
 	ft_printf_utils_bonus.c \
+	ft_printptr_bonus.c
 
 # Objects Definition
 OBJECTS = $(addprefix $(BIN_PATH), $(SOURCES:%.c=%.o))

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: nasser <nasser@student.42.fr>              +#+  +:+       +#+        */
+/*   By: fcaldas- <fcaldas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 21:11:21 by fcaldas-          #+#    #+#             */
-/*   Updated: 2023/09/28 19:17:25 by nasser           ###   ########.fr       */
+/*   Updated: 2023/09/29 16:57:40 by fcaldas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ int	print_var(va_list args, const char format)
 	else if (format == 's')
 		print_len += ft_printstr(va_arg(args, char *));
 	else if (format == 'p')
-		print_len += ft_putnbr_base(va_arg(args, unsigned long int), format);
+		print_len += ft_printptr(va_arg(args, unsigned long int));
 	else if (format == 'd' || format == 'i')
 		print_len += ft_printnbr(va_arg(args, int));
 	else if (format == 'u')
-		print_len += ft_putnbr_base(va_arg(args, unsigned long int), format);
+		print_len += ft_putnbr_base(va_arg(args, unsigned int), format);
 	else if (format == 'x' || format == 'X')
-		print_len += ft_putnbr_base(va_arg(args, unsigned long int), format);
+		print_len += ft_putnbr_base(va_arg(args, unsigned int), format);
 	else if (format == '%')
 		print_len += ft_printchar('%');
 	return (print_len);
