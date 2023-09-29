@@ -6,11 +6,11 @@
 /*   By: nasser <nasser@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 21:11:21 by fcaldas-          #+#    #+#             */
-/*   Updated: 2023/09/28 20:26:01 by nasser           ###   ########.fr       */
+/*   Updated: 2023/09/29 00:09:57 by nasser           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
 // int	ft_print_var_bonus(va_list args, const char *format, int i)
 // {
@@ -35,14 +35,18 @@ int	print_var(va_list args, const char *format, int i)
 	int	print_len;
 
 	print_len = 0;
-	if (format[i] == 'c')
+	if (format[i] == ' ' && (format[i + 1] == 'd' || format[i + 1] == 'i'))
+		print_len += ft_printnbr(va_arg(args, int), 1, 0);
+	else if (format[i] == '+' && (format[i + 1] == 'd' || format[i + 1] == 'i'))
+		print_len += ft_printnbr(va_arg(args, int), 0, 1);
+	else if (format[i] == 'c')
 		print_len += ft_printchar(va_arg(args, int));
 	else if (format[i] == 's')
 		print_len += ft_printstr(va_arg(args, char *));
 	else if (format[i] == 'p')
 		print_len += ft_putnbr_base(va_arg(args, unsigned long int), format[i]);
 	else if (format[i] == 'd' || format[i] == 'i')
-		print_len += ft_printnbr(va_arg(args, int));
+		print_len += ft_printnbr(va_arg(args, int), 0, 0);
 	else if (format[i] == 'u')
 		print_len += ft_putnbr_base(va_arg(args, unsigned long int), format[i]);
 	else if (format[i] == 'x' || format[i] == 'X')

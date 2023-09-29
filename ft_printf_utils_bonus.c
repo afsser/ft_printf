@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf_utils.c                                  :+:      :+:    :+:   */
+/*   ft_printf_utils_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nasser <nasser@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 21:25:30 by fcaldas-          #+#    #+#             */
-/*   Updated: 2023/09/28 18:56:19 by nasser           ###   ########.fr       */
+/*   Updated: 2023/09/29 00:20:49 by nasser           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -44,7 +44,7 @@ int	ft_printstr(char *str)
 	return (i);
 }
 
-int	ft_printnbr(int n)
+int	ft_printnbr(int n, int space, int plus)
 {
 	int			print_len;
 	long int	ln;
@@ -56,12 +56,17 @@ int	ft_printnbr(int n)
 		ln *= -1;
 		print_len += ft_printchar('-');
 	}
+	else if (plus)
+		print_len += ft_printchar('+');
+	else if (space)
+		print_len += ft_printchar(' ');
 	if (ln > 9)
 	{
-		print_len += ft_printnbr(ln / 10);
+		print_len += ft_printnbr(ln / 10, 0, 0);
 		print_len += ft_printchar(ln % 10 + '0');
 	}
 	else
 		print_len += ft_printchar(ln + '0');
 	return (print_len);
 }
+// # é pra fazer o '0x' de hexa. ex: %#x ou %#X

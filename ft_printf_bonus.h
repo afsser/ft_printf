@@ -6,7 +6,7 @@
 /*   By: nasser <nasser@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 21:12:03 by fcaldas-          #+#    #+#             */
-/*   Updated: 2023/09/28 19:26:43 by nasser           ###   ########.fr       */
+/*   Updated: 2023/09/29 00:07:46 by nasser           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		ft_printf(const char *str, ...);
 char	*ft_strchr(const char *s, int c);
 int		ft_printchar(char c);
 int		ft_printstr(char *str);
-int		ft_printnbr(int n);
+int		ft_printnbr(int n, int space, int plus);
 int		ft_putnbr_base(unsigned long int nbr, char format);
 
 #endif
