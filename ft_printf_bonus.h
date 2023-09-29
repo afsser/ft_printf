@@ -6,7 +6,7 @@
 /*   By: nasser <nasser@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 21:12:03 by fcaldas-          #+#    #+#             */
-/*   Updated: 2023/09/29 00:07:46 by nasser           ###   ########.fr       */
+/*   Updated: 2023/09/29 00:50:55 by nasser           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@
 # define HEXA_LOW "0123456789abcdef"
 # define HEXA_UP "0123456789ABCDEF"
 # define FORMATS "cspdiuxX%# +"
+# define LOW_HASH "0x"
+# define UP_HASH "0X"
 
 # include <unistd.h>
 # include <stdarg.h>
