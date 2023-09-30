@@ -6,7 +6,7 @@
 /*   By: fcaldas- <fcaldas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 21:25:30 by fcaldas-          #+#    #+#             */
-/*   Updated: 2023/09/29 21:04:07 by fcaldas-         ###   ########.fr       */
+/*   Updated: 2023/09/29 21:06:18 by fcaldas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,3 @@ int	ft_printnbr(int n, int space, int plus)
 		print_len += ft_printchar(ln + '0');
 	return (print_len);
 }
-// # é pra fazer o '0x' de hexa. ex: %#x ou %#X
