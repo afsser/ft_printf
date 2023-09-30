@@ -6,7 +6,7 @@
 /*   By: fcaldas- <fcaldas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 21:11:21 by fcaldas-          #+#    #+#             */
-/*   Updated: 2023/09/29 20:27:14 by fcaldas-         ###   ########.fr       */
+/*   Updated: 2023/09/29 20:59:44 by fcaldas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	ft_print_hash(va_list args, const char *format, int i)
 	print_len = 0;
 	if (format[i] == '#' && (format[i + 1] == 'x' || format[i + 1] == 'X'))
 	{
-		nbr = va_arg(args, unsigned long int);
+		nbr = va_arg(args, unsigned int);
 		if (format[i + 1] == 'x')
 		{
 			if (nbr != 0)
@@ -70,11 +70,11 @@ int	print_var(va_list args, const char *format, int i)
 	else if (format[i] == 'd' || format[i] == 'i')
 		print_len += ft_printnbr(va_arg(args, int), 0, 0);
 	else if (format[i] == 'u')
-		print_len += ft_putnbr_base(va_arg(args, unsigned long int), format[i]);
+		print_len += ft_putnbr_base(va_arg(args, unsigned int), format[i]);
 	else if (format[i] == '%')
 		print_len += ft_printchar('%');
 	else if (format[i] == 'x' || format[i] == 'X')
-		print_len += ft_putnbr_base(va_arg(args, unsigned long int), format[i]);
+		print_len += ft_putnbr_base(va_arg(args, unsigned int), format[i]);
 	else
 		print_len += ft_print_hash(args, format, i);
 	return (print_len);
@@ -91,7 +91,7 @@ int	ft_printf(const char *str, ...)
 	print_len = 0;
 	while (str[i])
 	{
-		if (str[i] == '%')
+		if (str[i] == '%' && str[i + 1] != 0)
 		{
 			print_len = print_len + print_var(args, str, i + 1);
 			i++;

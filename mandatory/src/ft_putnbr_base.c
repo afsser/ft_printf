@@ -6,13 +6,13 @@
 /*   By: fcaldas- <fcaldas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/28 17:12:03 by nasser            #+#    #+#             */
-/*   Updated: 2023/09/29 20:26:40 by fcaldas-         ###   ########.fr       */
+/*   Updated: 2023/09/29 20:32:59 by fcaldas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int	ft_putnbr_base(unsigned long int nbr, char format)
+int	ft_putnbr_base(long int nbr, char format)
 {
 	int				size;
 	char			*base;
@@ -27,6 +27,11 @@ int	ft_putnbr_base(unsigned long int nbr, char format)
 	else if (format == 'x')
 		base = HEXA_LOW;
 	size = ft_strlen(base);
+	if (lli < 0)
+	{
+		lli = -lli;
+		print_len += ft_printchar('-');
+	}
 	if (lli >= size)
 		print_len += ft_putnbr_base(lli / size, format);
 	print_len += ft_printchar(base[lli % size]);
