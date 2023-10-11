@@ -6,7 +6,7 @@
 /*   By: fcaldas- <fcaldas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 21:25:30 by fcaldas-          #+#    #+#             */
-/*   Updated: 2023/09/29 21:06:18 by fcaldas-         ###   ########.fr       */
+/*   Updated: 2023/10/03 16:48:48 by fcaldas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	ft_printstr(char *str)
 	i = 0;
 	if (str)
 	{
-		while (str[i])
+		while (str[i] != '\0')
 		{
 			i += ft_printchar(str[i]);
 		}

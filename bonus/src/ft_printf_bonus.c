@@ -6,7 +6,7 @@
 /*   By: fcaldas- <fcaldas-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/27 21:11:21 by fcaldas-          #+#    #+#             */
-/*   Updated: 2023/09/29 22:17:46 by fcaldas-         ###   ########.fr       */
+/*   Updated: 2023/10/03 16:54:43 by fcaldas-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,25 +25,6 @@ int	follow_str(const char *str, int i)
 			return (1);
 	}
 	return (0);
-}
-
-int	string_exception(va_list args)
-{
-	int		print_len;
-	int		i;
-	char	*str;
-
-	str = va_arg(args, char *);
-	i = 0;
-	print_len = 0;
-	if (str[i] == '-')
-		print_len += ft_printstr(str);
-	else
-	{
-		print_len += ft_printchar(' ');
-		print_len += ft_printstr(str + 1);
-	}
-	return (print_len);
 }
 
 int	print_var_continue(va_list args, const char *format, int i)
@@ -68,8 +49,6 @@ int	print_var_continue(va_list args, const char *format, int i)
 			print_len += ft_putnbr_base(nbr, 'X');
 		}
 	}
-	else if (format[i] == ' ' && format[i + 1] == 's')
-		print_len += string_exception(args);
 	return (print_len);
 }
 
